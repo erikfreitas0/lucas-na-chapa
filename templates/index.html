@@ -4,43 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Na Chapa</title>
-    <link rel="stylesheet" href="/web/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <header>
-        <img src="/assets/logo-Lucas-na-chapa.png" 
+        <img src="/static/assets/logo-Lucas-na-chapa.png" 
         alt="logo Lucas Na Chapa">
         <h1>Lucas Na Chapa</h1>
 </header>
   <nav>
-    <a href="sobrenos.html"target="_blank">Sobre</a>
     <a href="#cardapio">Cardápio</a>
     <a href="#contato">Contato</a>
   </nav>
-    <section id="cardapio">
+
+   <section id="cardapio">
     <h2>Cardápio</h2>
+    
+    {% for codigo, item in cardapio.items() %}
     <div class="menu-item">
-      <h3>1</h3>
-      <p>a decidir </p>
+      <h3>{{ item.nome }}</h3>
+      <p>R$ {{ "%.2f"|format(item.preco) }}</p>
     </div>
-    <div class="menu-item">
-      <h3>2</h3>
-      <p>ainda a decidir</p>
-    </div>
-    <div class="menu-item">
-      <h3>3</h3>
-      <p>a decidir tbm</p>
-    </div>
-    <div class="menu-item">
-      <h3>4</h3>
-      <p>veremos futuramente</p>
-    </div>
+    {% endfor %}
+
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
     <p>📞 (48) 4002-8922</p>
-    <p>📍 R. Giacomo Sônego, nº 100 - Centro, Criciúma - SC</p>
+    <p>📍 R. Fernandes Rovaris, nº 327 - Centro, Criciúma - SC</p>
   </section>
 
   <footer>
